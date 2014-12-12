@@ -82,12 +82,3 @@ Occur can show all lines in the current buffer containing a match for REGEXP.
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 #+END_SRC
-
-* Evil Fixes
-Something similar to mapping j to gj in vim
-#+BEGIN_SRC emacs-lisp
-(define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line')
-(define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line')
-(define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line')
-(define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line')
-#+END_SRC
