@@ -78,6 +78,12 @@ Emacs session.
 #+BEGIN_SRC emacs-lisp
 (defun ome-evil-setup ()
   (define-key evil-insert-state-map (kbd "C-[") 'evil-force-normal-state)
+
+  (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+  (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+  (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+
   (setq evil-auto-indent t)
   (setq evil-regexp-search t)
   (setq evil-want-C-i-jump t)

@@ -8,13 +8,13 @@
 (menu-bar-mode t)
 
 ;;; You email address
-(setq user-mail-address "xiaohanyu1988@gmail.com")
+(setq user-mail-address "eriklee113@gmail.com")
 
 ;;; Calendar settings
 ;; you can use M-x sunrise-sunset to get the sun time
-(setq calendar-latitude 39.9)
-(setq calendar-longitude 116.3)
-(setq calendar-location-name "Beijing, China")
+(setq calendar-latitude 51.5)
+(setq calendar-longitude 0.13)
+(setq calendar-location-name "London, UK")
 
 ;;; Time related settings
 ;; show time in 24hours format
@@ -25,40 +25,3 @@
 (setq display-time-interval 10)
 ;; show time
 (display-time-mode t)
-
-;;; Some tiny tool functions
-(defun replace-all-chinese-quote ()
-  (interactive)
-  (save-excursion
-    (mark-whole-buffer)
-    (replace-regexp  "”\\|“" "\"")
-    (mark-whole-buffer)
-    (replace-regexp "’\\|‘" "'")))
-
-;; Comment function for GAS assembly language
-(defun gas-comment-region (start end)
-  "Comment region for AT&T syntax assembly language The default
-comment-char for gas is ';', we need '#' instead"
-  (interactive "r")
-  (setq end (copy-marker end t))
-  (save-excursion
-    (goto-char start)
-    (while (< (point) end)
-      (beginning-of-line)
-      (insert "# ")
-      (next-line))
-    (goto-char end)))
-
-(defun gas-uncomment-region (start end)
-  "Uncomment region for AT&T syntax assembly language the
-inversion of gas-comment-region"
-  (interactive "r")
-  (setq end (copy-marker end t))
-  (save-excursion
-    (goto-char start)
-    (while (< (point) end)
-      (beginning-of-line)
-      (if (equal (char-after) ?#)
-          (delete-char 1))
-      (next-line))
-    (goto-char end)))
